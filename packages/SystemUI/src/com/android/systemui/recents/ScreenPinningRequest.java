@@ -28,7 +28,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Binder;
 import android.os.RemoteException;
 import android.util.DisplayMetrics;
-import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.settingslib.Utils;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.statusbar.phone.NavigationBarView;
@@ -261,16 +259,10 @@ public class ScreenPinningRequest implements View.OnClickListener {
             }
 
             if (navigationBarView != null) {
-                int dualToneDarkTheme = Utils.getThemeAttr(getContext(), R.attr.darkIconTheme);
-                int dualToneLightTheme = Utils.getThemeAttr(getContext(), R.attr.lightIconTheme);
-                Context lightContext = new ContextThemeWrapper(getContext(), dualToneLightTheme);
-                Context darkContext = new ContextThemeWrapper(getContext(), dualToneDarkTheme);
                 ((ImageView) mLayout.findViewById(R.id.screen_pinning_back_icon))
-                        .setImageDrawable(navigationBarView.getBackDrawable(lightContext,
-                                darkContext));
+                        .setImageDrawable(navigationBarView.getBackDrawable(mContext));
                 ((ImageView) mLayout.findViewById(R.id.screen_pinning_home_icon))
-                        .setImageDrawable(navigationBarView.getHomeDrawable(lightContext,
-                                darkContext));
+                        .setImageDrawable(navigationBarView.getHomeDrawable(mContext));
             }
 
             ((TextView) mLayout.findViewById(R.id.screen_pinning_description))
