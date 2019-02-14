@@ -27,7 +27,6 @@ import com.android.systemui.Interpolators;
 import com.android.systemui.OverviewProxyService;
 import com.android.systemui.R;
 import com.android.systemui.plugins.statusbar.phone.NavBarButtonProvider.ButtonInterface;
-import com.android.systemui.statusbar.phone.ShadowKeyDrawable;
 import com.android.systemui.statusbar.policy.KeyButtonView;
 
 public class OpaLayout extends FrameLayout implements ButtonInterface {
@@ -588,16 +587,6 @@ public class OpaLayout extends FrameLayout implements ButtonInterface {
         Resources res = getContext().getResources();
         Drawable drawHomeIcon = res.getDrawable(shouldShowSwipeUpUI() ? R.drawable.ic_sysbar_home_quick_step : R.drawable.ic_sysbar_home);
         drawHomeIcon.setColorFilter(mIconTint, PorterDuff.Mode.SRC_IN);
-
-        if (mIntensity == 0f) {
-            ShadowKeyDrawable withShadow = new ShadowKeyDrawable(drawHomeIcon.mutate());
-            int offsetX = res.getDimensionPixelSize(R.dimen.nav_key_button_shadow_offset_x);
-            int offsetY = res.getDimensionPixelSize(R.dimen.nav_key_button_shadow_offset_y);
-            int radius = res.getDimensionPixelSize(R.dimen.nav_key_button_shadow_radius);
-            int color = res.getColor(R.color.nav_key_button_shadow_color);
-            withShadow.setShadowProperties(offsetX, offsetY, radius, color);
-            drawHomeIcon = withShadow;
-        }
 
         setImageDrawable(drawHomeIcon);
     }
