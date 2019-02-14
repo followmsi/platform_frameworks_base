@@ -17,11 +17,6 @@
      <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
 
-    <!-- Screen pinning dialog description. (for devices without navbar and with gestures on fingerprint sensor) -->
-    <string name="screen_pinning_description_no_navbar_fpsensor">This keeps it in view until you unpin. Touch &amp; hold fingerprint sensor to unpin.</string>
-     <!-- Notify use that they are in Lock-to-app (for devices without navbar and with gestures on fingerprint sensor)-->
-    <string name="screen_pinning_toast_no_navbar_fpsensor">To unpin this screen, touch &amp; hold fingerprint sensor</string>
-
     <!-- Advanced restart menu -->
     <!-- Button to restart the device into recovery mode, within the Restart Options dialog -->
     <string name="global_action_restart_recovery">Recovery</string>
